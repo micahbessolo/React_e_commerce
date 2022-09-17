@@ -4,7 +4,6 @@ import { useForm, FormProvider } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
 import { commerce } from '../../lib/commerce';
-
 import FormInput from './CustomTextField';
 
 const AddressForm = ({ checkoutToken, next }) => {
@@ -56,7 +55,7 @@ const AddressForm = ({ checkoutToken, next }) => {
     return (
         <>
             <Typography variant="h6" gutterBottom>Shipping Address</Typography>
-            <FormProvider {... methods}>
+            <FormProvider {...methods}>
                 <form onSubmit={methods.handleSubmit((data) => next({ ...data, shippingCountry, shippingSubdivision, shippingOption }))}>
                     <Grid container spacing={3}>
                         <FormInput name='firstName' label='First name' />
@@ -105,6 +104,6 @@ const AddressForm = ({ checkoutToken, next }) => {
             </FormProvider>
         </>
     );
-}
+};
 
 export default AddressForm

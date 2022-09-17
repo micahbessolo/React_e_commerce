@@ -31,10 +31,9 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     const nextStep = () => setActiveStep((prevActiveStep) => prevActiveStep + 1);
     const backStep = () => setActiveStep((prevActiveStep) => prevActiveStep - 1);
 
-
     const next = (data) => {
         setShippingData(data);
-
+        
         nextStep();
     }
 
@@ -47,7 +46,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
     const Form = () => activeStep === 0
         ? <AddressForm checkoutToken={checkoutToken} next={next} />
         : <PaymentForm shippingData={shippingData} checkoutToken={checkoutToken} nextStep={nextStep} backStep={backStep} onCaptureCheckout={onCaptureCheckout} />
-
+        
     return (
         <>
             <div className={classes.toolbar} />
@@ -65,7 +64,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
                 </Paper>
             </main>
         </>
-    )
+    );
 }
 
 export default Checkout
